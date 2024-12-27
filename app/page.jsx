@@ -12,7 +12,7 @@ const Read = () => {
         setLoading(true);
         try {
             const params = new URLSearchParams(query);
-            const response = await fetch(`/api/books?${params}`);
+            const response = await fetch(`/api/accessible?${params}`);
             if (response.ok) {
                 const data = await response.json();
                 setBooks(data);
