@@ -6,9 +6,7 @@ export function middleware(req) {
   const authCookie = req.cookies.get("admin-auth");
 
   const isAdminRoute = url.pathname.startsWith("/admin");
-  const isRestrictedApi =
-    url.pathname.startsWith("/api") &&
-    !url.pathname.startsWith("/api/accessible");
+  const isRestrictedApi = url.pathname.startsWith("/api/books");
 
   if (isAdminRoute || isRestrictedApi) {
     const authValue = authCookie?.value?.trim();
