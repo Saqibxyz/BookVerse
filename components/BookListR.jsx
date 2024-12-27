@@ -12,7 +12,7 @@ const BookList = ({ books }) => {
                 return (
                     <Link href={correctedLink} key={book._id} passHref>
                         <div className="bg-white border border-gray-200 rounded-lg shadow-md p-4 hover:shadow-lg transition duration-200">
-                            <h3 className="text-xl font-bold text-gray-800 mb-2">{book.title}</h3>
+                            <h3 className="text-xl font-bold text-blue-600 mb-2">{book.title}</h3>
                             <p className="text-gray-600">Author: {book.author}</p>
                             <p className="text-gray-500">Published Year: {book.publishedYear}</p>
                         </div>

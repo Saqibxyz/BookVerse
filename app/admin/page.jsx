@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import BookList from "@/components/BookList";
 import BookForm from "@/components/BookForm";
 import UpdateBookForm from "@/components/UpdateBookForm";
@@ -11,7 +11,6 @@ function App() {
   const [editingBook, setEditingBook] = useState(null);
   const [deletingBookId, setDeletingBookId] = useState(null);
 
-  // Fetch books when the component mounts
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -39,7 +38,6 @@ function App() {
       <main className="container mx-auto p-6">
         <BookForm setBooks={setBooks} />
 
-        {/* Show update form if editingBook is not null */}
         {editingBook && (
           <UpdateBookForm book={editingBook} setBooks={setBooks} />
         )}
@@ -47,16 +45,15 @@ function App() {
         <BookList
           books={books}
           setBooks={setBooks}
-          onEdit={(book) => setEditingBook(book)} // Set book for editing
-          onDelete={(bookId) => setDeletingBookId(bookId)} // Set book for deletion
+          onEdit={(book) => setEditingBook(book)}
+          onDelete={(bookId) => setDeletingBookId(bookId)}
         />
 
-        {/* Show delete modal if deletingBookId is not null */}
         {deletingBookId && (
           <DeleteBookModal
             bookId={deletingBookId}
             setBooks={setBooks}
-            closeModal={() => setDeletingBookId(null)} // Close modal
+            closeModal={() => setDeletingBookId(null)}
           />
         )}
       </main>

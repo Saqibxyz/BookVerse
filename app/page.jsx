@@ -33,17 +33,17 @@ const Read = () => {
 
     return (
         <div className="min-h-screen bg-gray-100 p-6">
-            
-                <h1 className="text-center text-3xl font-bold text-gray-800 mb-6">
-                    Library Management
-                </h1>
-                <SearchBar onSearch={fetchBooks} />
-                {loading ? (
-                    <p className="text-center text-gray-500 mt-4">Loading...</p>
-                ) : (
-                    <BookList books={books} />
-                )}
-          
+
+            <h1 className="text-center text-3xl font-bold text-gray-800 mb-6">
+                BookVerse
+            </h1>
+            <SearchBar onSearch={fetchBooks} />
+            {loading ? (
+                <p className="text-center text-gray-500 mt-4">Loading...</p>
+            ) : (
+                <BookList books={books} />
+            )}
+
         </div>
 
 

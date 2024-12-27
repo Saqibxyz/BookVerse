@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from "react";
+import SearchBar from "./SearchBar";
 
 function BookList({ books, setBooks }) {
     const [editingBook, setEditingBook] = useState(null);
     const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(null);
 
+
     useEffect(() => {
         fetchBooks();
     }, []);
 
-    const fetchBooks = async () => {
+    const fetchBooks = async (query = {}) => {
+
         try {
-            const response = await fetch("/api/books");
-            const data = await response.json();
-            setBooks(data);
+            const params = new URLSearchParams(query);
+            const response = await fetch(`/api/books?${params}`);
+            if (response.ok) {
+                const data = await response.json();
+                setBooks(data);
+            } else {
+                console.error("Failed to fetch books");
+            }
         } catch (error) {
             console.error("Error fetching books:", error);
         }
@@ -67,6 +75,7 @@ function BookList({ books, setBooks }) {
 
     return (
         <div className="mt-6">
+            <SearchBar onSearch={fetchBooks} />
             <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                 Available Books
             </h2>

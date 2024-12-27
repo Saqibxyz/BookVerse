@@ -19,21 +19,21 @@ const SearchBar = ({ onSearch }) => {
             <input
                 type="text"
                 placeholder="Author"
-                className="input"
+                className="input text-gray-600"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
             />
             <input
                 type="text"
                 placeholder="Title"
-                className="input"
+                className="input text-gray-600"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
             />
             <input
                 type="number"
                 placeholder="Year"
-                className="input"
+                className="input text-gray-600"
                 value={publishedYear}
                 onChange={(e) => setPublishedYear(e.target.value)}
             />
